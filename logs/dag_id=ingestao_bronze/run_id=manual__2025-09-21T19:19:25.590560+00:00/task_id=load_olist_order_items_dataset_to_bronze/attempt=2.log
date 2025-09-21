@@ -1,0 +1,24 @@
+[2025-09-21T19:22:45.760+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: ingestao_bronze.load_olist_order_items_dataset_to_bronze manual__2025-09-21T19:19:25.590560+00:00 [queued]>
+[2025-09-21T19:22:45.792+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: ingestao_bronze.load_olist_order_items_dataset_to_bronze manual__2025-09-21T19:19:25.590560+00:00 [queued]>
+[2025-09-21T19:22:45.793+0000] {taskinstance.py:2170} INFO - Starting attempt 2 of 2
+[2025-09-21T19:22:45.892+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): load_olist_order_items_dataset_to_bronze> on 2025-09-21 19:19:25.590560+00:00
+[2025-09-21T19:22:45.928+0000] {standard_task_runner.py:60} INFO - Started process 277 to run task
+[2025-09-21T19:22:45.951+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'ingestao_bronze', 'load_olist_order_items_dataset_to_bronze', 'manual__2025-09-21T19:19:25.590560+00:00', '--job-id', '74', '--raw', '--subdir', 'DAGS_FOLDER/ingestao_bronze.py', '--cfg-path', '/tmp/tmpmhc2ph9v']
+[2025-09-21T19:22:45.953+0000] {standard_task_runner.py:88} INFO - Job 74: Subtask load_olist_order_items_dataset_to_bronze
+[2025-09-21T19:22:46.183+0000] {task_command.py:423} INFO - Running <TaskInstance: ingestao_bronze.load_olist_order_items_dataset_to_bronze manual__2025-09-21T19:19:25.590560+00:00 [running]> on host 4fed29f7994a
+[2025-09-21T19:22:46.709+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='ingestao_bronze' AIRFLOW_CTX_TASK_ID='load_olist_order_items_dataset_to_bronze' AIRFLOW_CTX_EXECUTION_DATE='2025-09-21T19:19:25.590560+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-09-21T19:19:25.590560+00:00'
+[2025-09-21T19:22:46.714+0000] {taskinstance.py:2698} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 433, in _execute_task
+    result = execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 199, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 216, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/ingestao_bronze.py", line 31, in load_csv_to_bronze
+    raise FileNotFoundError(f"Arquivo {file_name} não encontrado em {DATA_PATH}")
+FileNotFoundError: Arquivo olist_order_items_dataset.csv não encontrado em /opt/***/data
+[2025-09-21T19:22:46.739+0000] {taskinstance.py:1138} INFO - Marking task as FAILED. dag_id=ingestao_bronze, task_id=load_olist_order_items_dataset_to_bronze, execution_date=20250921T191925, start_date=20250921T192245, end_date=20250921T192246
+[2025-09-21T19:22:46.890+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 74 for task load_olist_order_items_dataset_to_bronze (Arquivo olist_order_items_dataset.csv não encontrado em /opt/***/data; 277)
+[2025-09-21T19:22:47.023+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2025-09-21T19:22:47.189+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check
