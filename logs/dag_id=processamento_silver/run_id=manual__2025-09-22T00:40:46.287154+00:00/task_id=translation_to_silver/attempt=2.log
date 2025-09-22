@@ -1,0 +1,33 @@
+[2025-09-22T00:44:36.585+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: processamento_silver.translation_to_silver manual__2025-09-22T00:40:46.287154+00:00 [queued]>
+[2025-09-22T00:44:36.600+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: processamento_silver.translation_to_silver manual__2025-09-22T00:40:46.287154+00:00 [queued]>
+[2025-09-22T00:44:36.601+0000] {taskinstance.py:2170} INFO - Starting attempt 2 of 2
+[2025-09-22T00:44:36.656+0000] {taskinstance.py:2191} INFO - Executing <Task(PostgresOperator): translation_to_silver> on 2025-09-22 00:40:46.287154+00:00
+[2025-09-22T00:44:36.676+0000] {standard_task_runner.py:60} INFO - Started process 1091 to run task
+[2025-09-22T00:44:36.699+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'processamento_silver', 'translation_to_silver', 'manual__2025-09-22T00:40:46.287154+00:00', '--job-id', '117', '--raw', '--subdir', 'DAGS_FOLDER/processamento_silver.py', '--cfg-path', '/tmp/tmp868svh_a']
+[2025-09-22T00:44:36.706+0000] {standard_task_runner.py:88} INFO - Job 117: Subtask translation_to_silver
+[2025-09-22T00:44:36.812+0000] {task_command.py:423} INFO - Running <TaskInstance: processamento_silver.translation_to_silver manual__2025-09-22T00:40:46.287154+00:00 [running]> on host e833383cbb8e
+[2025-09-22T00:44:37.137+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='processamento_silver' AIRFLOW_CTX_TASK_ID='translation_to_silver' AIRFLOW_CTX_EXECUTION_DATE='2025-09-22T00:40:46.287154+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-09-22T00:40:46.287154+00:00'
+[2025-09-22T00:44:37.139+0000] {sql.py:276} INFO - Executing: CREATE SCHEMA IF NOT EXISTS silver;
+
+DROP TABLE IF EXISTS silver.product_category_name_translation;
+
+CREATE TABLE silver.product_category_name_translation AS
+SELECT
+    lower(trim(product_category_name)) AS product_category_name,
+    lower(trim(product_category_name_english)) AS product_category_name_english
+FROM bronze.product_category_name_translation;
+[2025-09-22T00:44:37.177+0000] {base.py:83} INFO - Using connection ID '***_db' for task execution.
+[2025-09-22T00:44:37.214+0000] {base.py:83} INFO - Using connection ID '***_db' for task execution.
+[2025-09-22T00:44:37.232+0000] {sql.py:450} INFO - Running statement: CREATE SCHEMA IF NOT EXISTS silver;
+
+DROP TABLE IF EXISTS silver.product_category_name_translation;
+
+CREATE TABLE silver.product_category_name_translation AS
+SELECT
+    lower(trim(product_category_name)) AS product_category_name,
+    lower(trim(product_category_name_english)) AS product_category_name_english
+FROM bronze.product_category_name_translation;, parameters: None
+[2025-09-22T00:44:37.324+0000] {sql.py:459} INFO - Rows affected: 71
+[2025-09-22T00:44:38.014+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=processamento_silver, task_id=translation_to_silver, execution_date=20250922T004046, start_date=20250922T004436, end_date=20250922T004438
+[2025-09-22T00:44:38.512+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2025-09-22T00:44:38.563+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check

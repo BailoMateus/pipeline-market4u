@@ -1,0 +1,54 @@
+[2025-09-22T00:40:55.616+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: processamento_silver.customers_to_silver manual__2025-09-22T00:40:46.287154+00:00 [queued]>
+[2025-09-22T00:40:55.713+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: processamento_silver.customers_to_silver manual__2025-09-22T00:40:46.287154+00:00 [queued]>
+[2025-09-22T00:40:55.714+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 2
+[2025-09-22T00:40:55.933+0000] {taskinstance.py:2191} INFO - Executing <Task(PostgresOperator): customers_to_silver> on 2025-09-22 00:40:46.287154+00:00
+[2025-09-22T00:40:55.994+0000] {standard_task_runner.py:60} INFO - Started process 1024 to run task
+[2025-09-22T00:40:56.002+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'processamento_silver', 'customers_to_silver', 'manual__2025-09-22T00:40:46.287154+00:00', '--job-id', '105', '--raw', '--subdir', 'DAGS_FOLDER/processamento_silver.py', '--cfg-path', '/tmp/tmpd1l1px4g']
+[2025-09-22T00:40:56.020+0000] {standard_task_runner.py:88} INFO - Job 105: Subtask customers_to_silver
+[2025-09-22T00:40:56.362+0000] {task_command.py:423} INFO - Running <TaskInstance: processamento_silver.customers_to_silver manual__2025-09-22T00:40:46.287154+00:00 [running]> on host e833383cbb8e
+[2025-09-22T00:40:56.888+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='processamento_silver' AIRFLOW_CTX_TASK_ID='customers_to_silver' AIRFLOW_CTX_EXECUTION_DATE='2025-09-22T00:40:46.287154+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-09-22T00:40:46.287154+00:00'
+[2025-09-22T00:40:56.920+0000] {sql.py:276} INFO - Executing: CREATE SCHEMA IF NOT EXISTS silver;
+
+DROP TABLE IF EXISTS silver.olist_customers_dataset;
+
+CREATE TABLE silver.olist_customers_dataset AS
+SELECT
+    customer_id,
+    customer_unique_id,
+    regexp_replace(customer_zip_code_prefix, '[^0-9]', '', 'g') AS customer_zip_code_prefix,
+    lower(trim(customer_city)) AS customer_city,
+    upper(trim(customer_state)) AS customer_state
+FROM bronze.olist_customers_dataset;
+[2025-09-22T00:40:56.974+0000] {base.py:83} INFO - Using connection ID '***_db' for task execution.
+[2025-09-22T00:40:57.036+0000] {base.py:83} INFO - Using connection ID '***_db' for task execution.
+[2025-09-22T00:40:57.052+0000] {sql.py:450} INFO - Running statement: CREATE SCHEMA IF NOT EXISTS silver;
+
+DROP TABLE IF EXISTS silver.olist_customers_dataset;
+
+CREATE TABLE silver.olist_customers_dataset AS
+SELECT
+    customer_id,
+    customer_unique_id,
+    regexp_replace(customer_zip_code_prefix, '[^0-9]', '', 'g') AS customer_zip_code_prefix,
+    lower(trim(customer_city)) AS customer_city,
+    upper(trim(customer_state)) AS customer_state
+FROM bronze.olist_customers_dataset;, parameters: None
+[2025-09-22T00:40:57.308+0000] {taskinstance.py:2698} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 433, in _execute_task
+    result = execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/common/sql/operators/sql.py", line 282, in execute
+    output = hook.run(
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/common/sql/hooks/sql.py", line 398, in run
+    self._run_command(cur, sql_statement, parameters)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/common/sql/hooks/sql.py", line 455, in _run_command
+    cur.execute(sql_statement)
+psycopg2.errors.UniqueViolation: duplicate key value violates unique constraint "pg_namespace_nspname_index"
+DETAIL:  Key (nspname)=(silver) already exists.
+
+[2025-09-22T00:40:57.357+0000] {taskinstance.py:1138} INFO - Marking task as UP_FOR_RETRY. dag_id=processamento_silver, task_id=customers_to_silver, execution_date=20250922T004046, start_date=20250922T004055, end_date=20250922T004057
+[2025-09-22T00:40:57.464+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 105 for task customers_to_silver (duplicate key value violates unique constraint "pg_namespace_nspname_index"
+DETAIL:  Key (nspname)=(silver) already exists.
+; 1024)
+[2025-09-22T00:40:57.558+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2025-09-22T00:40:57.718+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check

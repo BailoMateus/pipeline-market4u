@@ -1,0 +1,43 @@
+[2025-09-22T00:40:55.233+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: processamento_silver.order_reviews_to_silver manual__2025-09-22T00:40:46.287154+00:00 [queued]>
+[2025-09-22T00:42:56.615+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: processamento_silver.order_reviews_to_silver manual__2025-09-22T00:40:46.287154+00:00 [queued]>
+[2025-09-22T00:42:56.616+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 2
+[2025-09-22T00:42:56.636+0000] {taskinstance.py:2191} INFO - Executing <Task(PostgresOperator): order_reviews_to_silver> on 2025-09-22 00:40:46.287154+00:00
+[2025-09-22T00:42:56.660+0000] {standard_task_runner.py:60} INFO - Started process 1022 to run task
+[2025-09-22T00:42:56.672+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'processamento_silver', 'order_reviews_to_silver', 'manual__2025-09-22T00:40:46.287154+00:00', '--job-id', '104', '--raw', '--subdir', 'DAGS_FOLDER/processamento_silver.py', '--cfg-path', '/tmp/tmpor1j_h48']
+[2025-09-22T00:42:56.677+0000] {standard_task_runner.py:88} INFO - Job 104: Subtask order_reviews_to_silver
+[2025-09-22T00:40:55.910+0000] {task_command.py:423} INFO - Running <TaskInstance: processamento_silver.order_reviews_to_silver manual__2025-09-22T00:40:46.287154+00:00 [running]> on host e833383cbb8e
+[2025-09-22T00:40:56.348+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='processamento_silver' AIRFLOW_CTX_TASK_ID='order_reviews_to_silver' AIRFLOW_CTX_EXECUTION_DATE='2025-09-22T00:40:46.287154+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-09-22T00:40:46.287154+00:00'
+[2025-09-22T00:40:56.379+0000] {sql.py:276} INFO - Executing: CREATE SCHEMA IF NOT EXISTS silver;
+
+DROP TABLE IF EXISTS silver.olist_order_reviews_dataset;
+
+CREATE TABLE silver.olist_order_reviews_dataset AS
+SELECT
+    review_id,
+    order_id,
+    review_score::INTEGER,
+    review_comment_title,
+    review_comment_message,
+    CAST(review_creation_date AS TIMESTAMP) AS review_creation_date,
+    CAST(review_answer_timestamp AS TIMESTAMP) AS review_answer_timestamp
+FROM bronze.olist_order_reviews_dataset;
+[2025-09-22T00:40:56.451+0000] {base.py:83} INFO - Using connection ID '***_db' for task execution.
+[2025-09-22T00:40:56.506+0000] {base.py:83} INFO - Using connection ID '***_db' for task execution.
+[2025-09-22T00:40:56.523+0000] {sql.py:450} INFO - Running statement: CREATE SCHEMA IF NOT EXISTS silver;
+
+DROP TABLE IF EXISTS silver.olist_order_reviews_dataset;
+
+CREATE TABLE silver.olist_order_reviews_dataset AS
+SELECT
+    review_id,
+    order_id,
+    review_score::INTEGER,
+    review_comment_title,
+    review_comment_message,
+    CAST(review_creation_date AS TIMESTAMP) AS review_creation_date,
+    CAST(review_answer_timestamp AS TIMESTAMP) AS review_answer_timestamp
+FROM bronze.olist_order_reviews_dataset;, parameters: None
+[2025-09-22T00:40:57.264+0000] {sql.py:459} INFO - Rows affected: 99224
+[2025-09-22T00:40:57.349+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=processamento_silver, task_id=order_reviews_to_silver, execution_date=20250922T004046, start_date=20250922T004055, end_date=20250922T004057
+[2025-09-22T00:40:57.684+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2025-09-22T00:40:58.036+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check

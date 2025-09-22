@@ -1,0 +1,47 @@
+[2025-09-22T00:51:02.645+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: processamento_silver.products_to_silver manual__2025-09-22T00:48:47.181291+00:00 [queued]>
+[2025-09-22T00:51:02.687+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: processamento_silver.products_to_silver manual__2025-09-22T00:48:47.181291+00:00 [queued]>
+[2025-09-22T00:51:02.688+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 2
+[2025-09-22T00:49:01.601+0000] {taskinstance.py:2191} INFO - Executing <Task(PostgresOperator): products_to_silver> on 2025-09-22 00:48:47.181291+00:00
+[2025-09-22T00:49:01.621+0000] {standard_task_runner.py:60} INFO - Started process 1185 to run task
+[2025-09-22T00:49:01.642+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'processamento_silver', 'products_to_silver', 'manual__2025-09-22T00:48:47.181291+00:00', '--job-id', '126', '--raw', '--subdir', 'DAGS_FOLDER/processamento_silver.py', '--cfg-path', '/tmp/tmp5at1s8qj']
+[2025-09-22T00:49:01.651+0000] {standard_task_runner.py:88} INFO - Job 126: Subtask products_to_silver
+[2025-09-22T00:49:02.169+0000] {task_command.py:423} INFO - Running <TaskInstance: processamento_silver.products_to_silver manual__2025-09-22T00:48:47.181291+00:00 [running]> on host e833383cbb8e
+[2025-09-22T00:49:02.913+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='processamento_silver' AIRFLOW_CTX_TASK_ID='products_to_silver' AIRFLOW_CTX_EXECUTION_DATE='2025-09-22T00:48:47.181291+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-09-22T00:48:47.181291+00:00'
+[2025-09-22T00:49:02.919+0000] {sql.py:276} INFO - Executing: CREATE SCHEMA IF NOT EXISTS silver;
+
+DROP TABLE IF EXISTS silver.olist_products_dataset;
+
+CREATE TABLE silver.olist_products_dataset AS
+SELECT
+    product_id,
+    lower(trim(product_category_name)) AS product_category_name,
+    product_name_lenght::INTEGER,
+    product_description_lenght::INTEGER,
+    product_photos_qty::INTEGER,
+    CAST(product_weight_g AS NUMERIC(18,6)) AS product_weight_g,
+    CAST(product_length_cm AS NUMERIC(18,6)) AS product_length_cm,
+    CAST(product_height_cm AS NUMERIC(18,6)) AS product_height_cm,
+    CAST(product_width_cm AS NUMERIC(18,6)) AS product_width_cm
+FROM bronze.olist_products_dataset;
+[2025-09-22T00:49:02.990+0000] {base.py:83} INFO - Using connection ID '***_db' for task execution.
+[2025-09-22T00:49:03.051+0000] {base.py:83} INFO - Using connection ID '***_db' for task execution.
+[2025-09-22T00:49:03.070+0000] {sql.py:450} INFO - Running statement: CREATE SCHEMA IF NOT EXISTS silver;
+
+DROP TABLE IF EXISTS silver.olist_products_dataset;
+
+CREATE TABLE silver.olist_products_dataset AS
+SELECT
+    product_id,
+    lower(trim(product_category_name)) AS product_category_name,
+    product_name_lenght::INTEGER,
+    product_description_lenght::INTEGER,
+    product_photos_qty::INTEGER,
+    CAST(product_weight_g AS NUMERIC(18,6)) AS product_weight_g,
+    CAST(product_length_cm AS NUMERIC(18,6)) AS product_length_cm,
+    CAST(product_height_cm AS NUMERIC(18,6)) AS product_height_cm,
+    CAST(product_width_cm AS NUMERIC(18,6)) AS product_width_cm
+FROM bronze.olist_products_dataset;, parameters: None
+[2025-09-22T00:49:04.244+0000] {sql.py:459} INFO - Rows affected: 32951
+[2025-09-22T00:49:04.311+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=processamento_silver, task_id=products_to_silver, execution_date=20250922T004847, start_date=20250922T005102, end_date=20250922T004904
+[2025-09-22T00:51:05.638+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2025-09-22T00:51:05.767+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check

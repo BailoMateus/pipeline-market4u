@@ -1671,3 +1671,79 @@
 [2025-09-21T20:30:37.945+0000] {logging_mixin.py:188} INFO - [2025-09-21T20:30:37.944+0000] {dag.py:3036} INFO - Sync 1 DAGs
 [2025-09-21T20:30:37.961+0000] {logging_mixin.py:188} INFO - [2025-09-21T20:30:37.960+0000] {dag.py:3823} INFO - Setting next_dagrun for ingestao_bronze to None, run_after=None
 [2025-09-21T20:30:37.985+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/ingestao_bronze.py took 0.465 seconds
+[2025-09-21T23:54:33.096+0000] {processor.py:161} INFO - Started process (PID=68) to work on /opt/airflow/dags/ingestao_bronze.py
+[2025-09-21T23:54:33.107+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/ingestao_bronze.py for tasks to queue
+[2025-09-21T23:54:33.111+0000] {logging_mixin.py:188} INFO - [2025-09-21T23:54:33.110+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/ingestao_bronze.py
+[2025-09-21T23:57:15.911+0000] {processor.py:161} INFO - Started process (PID=149) to work on /opt/airflow/dags/ingestao_bronze.py
+[2025-09-21T23:57:15.946+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/ingestao_bronze.py for tasks to queue
+[2025-09-21T23:57:15.949+0000] {logging_mixin.py:188} INFO - [2025-09-21T23:57:15.949+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/ingestao_bronze.py
+[2025-09-21T23:55:16.768+0000] {processor.py:840} INFO - DAG(s) 'ingestao_bronze' retrieved from /opt/airflow/dags/ingestao_bronze.py
+[2025-09-21T23:55:17.024+0000] {logging_mixin.py:188} INFO - [2025-09-21T23:55:17.016+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-09-21T23:55:17.048+0000] {logging_mixin.py:188} INFO - [2025-09-21T23:55:17.047+0000] {dag.py:3823} INFO - Setting next_dagrun for ingestao_bronze to None, run_after=None
+[2025-09-21T23:55:17.156+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/ingestao_bronze.py took 2.435 seconds
+[2025-09-21T23:55:48.217+0000] {processor.py:161} INFO - Started process (PID=207) to work on /opt/airflow/dags/ingestao_bronze.py
+[2025-09-21T23:55:48.221+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/ingestao_bronze.py for tasks to queue
+[2025-09-21T23:55:48.224+0000] {logging_mixin.py:188} INFO - [2025-09-21T23:55:48.223+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/ingestao_bronze.py
+[2025-09-21T23:58:21.286+0000] {processor.py:161} INFO - Started process (PID=306) to work on /opt/airflow/dags/ingestao_bronze.py
+[2025-09-21T23:56:20.116+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/ingestao_bronze.py for tasks to queue
+[2025-09-21T23:56:20.280+0000] {logging_mixin.py:188} INFO - [2025-09-21T23:56:20.280+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/ingestao_bronze.py
+[2025-09-21T23:56:25.418+0000] {processor.py:840} INFO - DAG(s) 'ingestao_bronze' retrieved from /opt/airflow/dags/ingestao_bronze.py
+[2025-09-21T23:56:25.628+0000] {logging_mixin.py:188} INFO - [2025-09-21T23:56:25.627+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-09-21T23:56:25.667+0000] {logging_mixin.py:188} INFO - [2025-09-21T23:56:25.667+0000] {dag.py:3823} INFO - Setting next_dagrun for ingestao_bronze to None, run_after=None
+[2025-09-21T23:56:25.788+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/ingestao_bronze.py took 5.682 seconds
+[2025-09-21T23:58:36.292+0000] {processor.py:161} INFO - Started process (PID=362) to work on /opt/airflow/dags/ingestao_bronze.py
+[2025-09-21T23:58:36.295+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/ingestao_bronze.py for tasks to queue
+[2025-09-21T23:58:36.297+0000] {logging_mixin.py:188} INFO - [2025-09-21T23:58:36.296+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/ingestao_bronze.py
+[2025-09-21T23:56:36.175+0000] {processor.py:840} INFO - DAG(s) 'ingestao_bronze' retrieved from /opt/airflow/dags/ingestao_bronze.py
+[2025-09-21T23:56:36.239+0000] {logging_mixin.py:188} INFO - [2025-09-21T23:56:36.238+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-09-21T23:56:36.309+0000] {logging_mixin.py:188} INFO - [2025-09-21T23:56:36.309+0000] {dag.py:3823} INFO - Setting next_dagrun for ingestao_bronze to None, run_after=None
+[2025-09-21T23:56:36.802+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/ingestao_bronze.py took 1.693 seconds
+[2025-09-21T23:57:07.065+0000] {processor.py:161} INFO - Started process (PID=414) to work on /opt/airflow/dags/ingestao_bronze.py
+[2025-09-21T23:57:07.071+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/ingestao_bronze.py for tasks to queue
+[2025-09-21T23:57:07.072+0000] {logging_mixin.py:188} INFO - [2025-09-21T23:57:07.071+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/ingestao_bronze.py
+[2025-09-21T23:57:07.730+0000] {processor.py:840} INFO - DAG(s) 'ingestao_bronze' retrieved from /opt/airflow/dags/ingestao_bronze.py
+[2025-09-21T23:57:07.765+0000] {logging_mixin.py:188} INFO - [2025-09-21T23:57:07.765+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-09-21T23:57:07.780+0000] {logging_mixin.py:188} INFO - [2025-09-21T23:57:07.779+0000] {dag.py:3823} INFO - Setting next_dagrun for ingestao_bronze to None, run_after=None
+[2025-09-21T23:57:07.802+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/ingestao_bronze.py took 0.742 seconds
+[2025-09-21T23:57:38.023+0000] {processor.py:161} INFO - Started process (PID=464) to work on /opt/airflow/dags/ingestao_bronze.py
+[2025-09-21T23:57:38.029+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/ingestao_bronze.py for tasks to queue
+[2025-09-21T23:57:38.030+0000] {logging_mixin.py:188} INFO - [2025-09-21T23:57:38.029+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/ingestao_bronze.py
+[2025-09-21T23:57:38.548+0000] {processor.py:840} INFO - DAG(s) 'ingestao_bronze' retrieved from /opt/airflow/dags/ingestao_bronze.py
+[2025-09-21T23:57:38.572+0000] {logging_mixin.py:188} INFO - [2025-09-21T23:57:38.571+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-09-21T23:57:38.585+0000] {logging_mixin.py:188} INFO - [2025-09-21T23:57:38.585+0000] {dag.py:3823} INFO - Setting next_dagrun for ingestao_bronze to None, run_after=None
+[2025-09-21T23:57:38.609+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/ingestao_bronze.py took 0.592 seconds
+[2025-09-21T23:59:46.376+0000] {processor.py:161} INFO - Started process (PID=498) to work on /opt/airflow/dags/ingestao_bronze.py
+[2025-09-21T23:59:46.378+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/ingestao_bronze.py for tasks to queue
+[2025-09-21T23:59:46.379+0000] {logging_mixin.py:188} INFO - [2025-09-21T23:59:46.379+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/ingestao_bronze.py
+[2025-09-21T23:57:45.740+0000] {processor.py:840} INFO - DAG(s) 'ingestao_bronze' retrieved from /opt/airflow/dags/ingestao_bronze.py
+[2025-09-21T23:57:45.765+0000] {logging_mixin.py:188} INFO - [2025-09-21T23:57:45.764+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-09-21T23:57:45.779+0000] {logging_mixin.py:188} INFO - [2025-09-21T23:57:45.779+0000] {dag.py:3823} INFO - Setting next_dagrun for ingestao_bronze to None, run_after=None
+[2025-09-21T23:57:45.807+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/ingestao_bronze.py took 0.615 seconds
+[2025-09-21T23:59:51.410+0000] {processor.py:161} INFO - Started process (PID=550) to work on /opt/airflow/dags/ingestao_bronze.py
+[2025-09-21T23:59:51.412+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/ingestao_bronze.py for tasks to queue
+[2025-09-21T23:59:51.413+0000] {logging_mixin.py:188} INFO - [2025-09-21T23:59:51.413+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/ingestao_bronze.py
+[2025-09-21T23:57:50.827+0000] {processor.py:840} INFO - DAG(s) 'ingestao_bronze' retrieved from /opt/airflow/dags/ingestao_bronze.py
+[2025-09-21T23:57:50.852+0000] {logging_mixin.py:188} INFO - [2025-09-21T23:57:50.851+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-09-21T23:57:50.866+0000] {logging_mixin.py:188} INFO - [2025-09-21T23:57:50.865+0000] {dag.py:3823} INFO - Setting next_dagrun for ingestao_bronze to None, run_after=None
+[2025-09-21T23:57:50.889+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/ingestao_bronze.py took 0.660 seconds
+[2025-09-21T23:58:21.105+0000] {processor.py:161} INFO - Started process (PID=602) to work on /opt/airflow/dags/ingestao_bronze.py
+[2025-09-21T23:58:21.106+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/ingestao_bronze.py for tasks to queue
+[2025-09-21T23:58:21.109+0000] {logging_mixin.py:188} INFO - [2025-09-21T23:58:21.108+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/ingestao_bronze.py
+[2025-09-21T23:58:21.743+0000] {processor.py:840} INFO - DAG(s) 'ingestao_bronze' retrieved from /opt/airflow/dags/ingestao_bronze.py
+[2025-09-21T23:58:21.769+0000] {logging_mixin.py:188} INFO - [2025-09-21T23:58:21.768+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-09-21T23:58:21.786+0000] {logging_mixin.py:188} INFO - [2025-09-21T23:58:21.785+0000] {dag.py:3823} INFO - Setting next_dagrun for ingestao_bronze to None, run_after=None
+[2025-09-21T23:58:21.815+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/ingestao_bronze.py took 0.716 seconds
+[2025-09-21T23:59:12.147+0000] {processor.py:161} INFO - Started process (PID=712) to work on /opt/airflow/dags/ingestao_bronze.py
+[2025-09-21T23:59:12.149+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/ingestao_bronze.py for tasks to queue
+[2025-09-21T23:59:12.151+0000] {logging_mixin.py:188} INFO - [2025-09-21T23:59:12.150+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/ingestao_bronze.py
+[2025-09-21T23:59:12.842+0000] {processor.py:840} INFO - DAG(s) 'ingestao_bronze' retrieved from /opt/airflow/dags/ingestao_bronze.py
+[2025-09-21T23:59:12.871+0000] {logging_mixin.py:188} INFO - [2025-09-21T23:59:12.871+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-09-21T23:59:12.887+0000] {logging_mixin.py:188} INFO - [2025-09-21T23:59:12.887+0000] {dag.py:3823} INFO - Setting next_dagrun for ingestao_bronze to None, run_after=None
+[2025-09-21T23:59:12.924+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/ingestao_bronze.py took 0.796 seconds
+[2025-09-21T23:59:43.250+0000] {processor.py:161} INFO - Started process (PID=765) to work on /opt/airflow/dags/ingestao_bronze.py
+[2025-09-21T23:59:43.266+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/ingestao_bronze.py for tasks to queue
+[2025-09-21T23:59:43.267+0000] {logging_mixin.py:188} INFO - [2025-09-21T23:59:43.267+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/ingestao_bronze.py
+[2025-09-21T23:59:43.985+0000] {processor.py:840} INFO - DAG(s) 'ingestao_bronze' retrieved from /opt/airflow/dags/ingestao_bronze.py
+[2025-09-21T23:59:44.066+0000] {logging_mixin.py:188} INFO - [2025-09-21T23:59:44.066+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-09-21T23:59:44.113+0000] {logging_mixin.py:188} INFO - [2025-09-21T23:59:44.113+0000] {dag.py:3823} INFO - Setting next_dagrun for ingestao_bronze to None, run_after=None
+[2025-09-21T23:59:44.219+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/ingestao_bronze.py took 0.975 seconds
