@@ -14,6 +14,8 @@ Abaixo está um diagrama que mostra a relação dos dados utilizados no pipeline
 ![Relação entre as tabelas](img_relacao_db.png)
 
 ## Estrutura do Projeto
+
+```plaintext
 .
 ├── dags/
 │ ├── ingestao_bronze.py
@@ -48,17 +50,17 @@ Abaixo está um diagrama que mostra a relação dos dados utilizados no pipeline
 ├── img_relacao_db.png
 ├── README.md
 └── ANALISE.md
-
+```
 ---
 
 ## Como Executar o Projeto
 
 1. Clonar o repositório:
-   git clone https://github.com/<seu_usuario>/<seu_repo>.git
-   cd <seu_repo>
+   - git clone https://github.com/<seu_usuario>/<seu_repo>.git
+   - cd <seu_repo>
 
 2. Subir os containers:
-   docker-compose up -d
+   - docker-compose up -d
 
 3. Acessar o Airflow:
    - URL: http://localhost:8080
