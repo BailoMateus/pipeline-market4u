@@ -67,12 +67,19 @@ Abaixo está um diagrama que mostra a relação dos dados utilizados no pipeline
    - Usuário/Senha: airflow / airflow
 
 4. Executar as DAGs:
-   - Ativar e rodar ingestao_bronze
+   - Ativar ingestao_bronze, processamento_silver e carga_gold
+   - Rodar ingestao_bronze
    - Ela dispara automaticamente processamento_silver
    - Que por sua vez dispara carga_gold
    - Resultado final: tabela gold.dm_vendas_clientes populada no Postgres
 
 ---
+
+## Boas Práticas de Execução
+
+- Certifique-se de que todas as DAGs (`ingestao_bronze`, `processamento_silver` e `carga_gold`) estão **ativadas** (ligadas) na interface do Airflow.  
+- Se alguma DAG estiver desativada, ela **não será disparada automaticamente** pelas dependências configuradas.  
+- Em ambientes reais, recomenda-se manter as DAGs essenciais sempre ativas, e desativar apenas DAGs de teste ou em manutenção.
 
 ## Aviso sobre o .env
 O arquivo `.env` contém apenas a variável `AIRFLOW_UID=1000`, usada para compatibilidade de permissões no Docker.  
