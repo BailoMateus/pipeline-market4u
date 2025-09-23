@@ -18,6 +18,11 @@ LIMIT 10;
 ```
 ---
 
+## TOP 10 CLIENTES
+Abaixo está o resultado da query acima evendenciando os Clientes que mais gastaram
+
+![Top cliente](top_10_cleintes.png)
+
 ## Explicação
 - A query consulta diretamente o Data Mart dm_vendas_clientes criado na camada Gold.
 - Filtramos apenas clientes de São Paulo (SP).

@@ -53,7 +53,6 @@ WITH pedidos_clientes AS (
     FROM pedidos_clientes
     GROUP BY customer_unique_id, product_category_name
 )
-
 SELECT
     a.customer_unique_id,
     a.estado_cliente,
@@ -65,10 +64,9 @@ SELECT
     a.dias_desde_ultima_compra,
     a.avg_delivery_time_days,
     ct.product_category_name AS categoria_mais_comprada
-FROM agregado_cliente AS a
+FROM agregado_cliente a
 LEFT JOIN categoria_top ct
     ON a.customer_unique_id = ct.customer_unique_id
    AND ct.rn = 1;
 
 --Successfully run. Total query runtime: 4 secs 536 msec. 95539 rows affected
--- Optei por não usar Window's functions aqui por que aumentava muito o tempo para rodar
