@@ -16,34 +16,35 @@ Abaixo está um diagrama que mostra a relação dos dados utilizados no pipeline
 ## Estrutura do Projeto
 .
 ├── dags/
-│   ├── ingestao_bronze.py
-│   ├── processamento_silver.py
-│   └── carga_gold.py
+│ ├── ingestao_bronze.py
+│ ├── processamento_silver.py
+│ └── carga_gold.py
 ├── sql/
-│   ├── silver/
-│   │   ├── customers_to_silver.sql
-│   │   ├── geolocation_to_silver.sql
-│   │   ├── ...
-│   ├── gold/
-│   │   └── make_dm_vendas_clientes.sql
-│   │
-│   └── query_teste/
-│       ├──agregacao.sql
-│       ├──categoriaprincipal.sql
-│       └──pedidos_de_clientes.sql
-│ 
-├── logs/
-│
-│
-├── plugins
-│    
+│ ├── silver/
+│ │ ├── customers_to_silver.sql
+│ │ ├── geolocation_to_silver.sql
+│ │ ├── order_items_to_silver.sql
+│ │ ├── order_payments_to_silver.sql
+│ │ ├── order_reviews_to_silver.sql
+│ │ ├── orders_to_silver.sql
+│ │ ├── products_to_silver.sql
+│ │ ├── sellers_to_silver.sql
+│ │ └── product_category_name_translation_to_silver.sql
+│ └── gold/
+│ └── make_dm_vendas_clientes.sql
 ├── data/
-│   ├── olist_orders_dataset.csv
-│   ├── olist_customers_dataset.csv
-│   └── ...
+│ ├── olist_orders_dataset.csv
+│ └── olist_customers_dataset.csv
+├── query_teste/
+│ ├── agregacao.sql
+│ ├── categoria_principal.sql
+│ └── pedidos_de_clientes.sql
+├── logs/
+├── plugins/
 ├── docker-compose.yaml
 ├── requirements.txt
 ├── .env
+├── .gitignore
 ├── img_relacao_db.png
 ├── README.md
 └── ANALISE.md
