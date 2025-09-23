@@ -1,9 +1,10 @@
 from airflow import DAG
 from airflow.providers.postgres.operators.postgres import PostgresOperator
+from airflow.operators.trigger_dagrun import TriggerDagRunOperator
 from datetime import datetime
-import os
 
-SQL_PATH = "/opt/airflow/sql/silver"
+
+
 
 default_args = {
     "owner": "airflow",
@@ -73,6 +74,13 @@ with DAG(
         postgres_conn_id="airflow_db",
         sql="silver/product_category_name_translation_to_silver.sql",
     )
+    
+    #Trigger para DAG da Gold
+    trigger_gold = TriggerDagRunOperator(
+        task_id="trigger_gold",
+        trigger_dag_id="carga_gold",
+        wait_for_completion=True,
+    )
 
     [customers, geolocation, order_items, order_payments, order_reviews,
-     orders, products, sellers, translation]
+     orders, products, sellers, translation] >> trigger_gold

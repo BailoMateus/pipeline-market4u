@@ -1,0 +1,8 @@
+# Versão base do Airflow com suporte ao Postgres
+apache-airflow[postgres]==2.7.3
+
+# Utilizado para leitura e manipulação dos CSVs (camada Bronze)
+pandas==2.2.2
+
+# Conexão e manipulação de tabelas no Postgres (camada Bronze)
+sqlalchemy==2.0.29
