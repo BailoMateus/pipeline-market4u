@@ -6,6 +6,7 @@
 ---
 
 ## Query Utilizada
+```plaintext
 SELECT
     customer_unique_id,
     total_gasto,
@@ -14,7 +15,7 @@ FROM gold.dm_vendas_clientes
 WHERE estado_cliente = 'SP'
 ORDER BY total_gasto DESC
 LIMIT 10;
-
+```
 ---
 
 ## Explicação
